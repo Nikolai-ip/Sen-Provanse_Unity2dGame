@@ -12,7 +12,6 @@ public class CellMousePosition : MonoBehaviour
         set
         {
             _currentSelectedCellByMousePosition = value;
-            Debug.Log(_currentSelectedCellByMousePosition);
         }
     }
 

@@ -5,19 +5,18 @@ using UnityEngine;
 public class Cells : MonoBehaviour
 {
     private Cell[] _cells;
+    private SpriteRenderer[] _cellSprites;
     private void Start()
     {
         _cells= GetComponentsInChildren<Cell>();
-        foreach (var cell in _cells)
-        {
-            cell.gameObject.SetActive(false);
-        }
+        _cellSprites = GetComponentsInChildren<SpriteRenderer>();
+        SetActiveCells(false);
     }
-    public void SetActiveObject(bool active)
+    public void SetActiveCells(bool active)
     {
-        foreach (var cell in _cells)
+        for (int i = 0; i < _cells.Length; i++)
         {
-            cell.gameObject.SetActive(active);
+            _cellSprites[i].enabled = active;
         }
     }
 }

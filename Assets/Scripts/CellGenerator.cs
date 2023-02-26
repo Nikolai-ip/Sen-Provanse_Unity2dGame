@@ -7,10 +7,12 @@ public class CellGenerator : MonoBehaviour
     [SerializeField] private int _cellsRowAmount;
     [SerializeField] private int _cellsCollumsAmount;
     [SerializeField] private GameObject _cellPrefab;
+    private Cells _cellsParent;
     private float _cellHeight;
     private float _cellWidth;
     private void Start()
     {
+        _cellsParent = FindObjectOfType<Cells>(); 
         Clear();
         _cellHeight = _cellPrefab.transform.localScale.y;
         _cellWidth = _cellPrefab.transform.localScale.x;
@@ -24,13 +26,15 @@ public class CellGenerator : MonoBehaviour
         {
             for (int j = 0; j < _cellsCollumsAmount; j++)
             {             
-                Instantiate(_cellPrefab, new Vector3(j*_cellWidth,i*_cellHeight), new Quaternion(),transform);
+                var cell = Instantiate(_cellPrefab, new Vector3(j*_cellWidth,i*_cellHeight), new Quaternion(),transform);
+                cell.name = $"Cell {i} {j}";
+                cell.transform.parent = _cellsParent.transform;
             }
         }
     }
     private void Clear()
     {
-        foreach (var cell in GetComponentsInChildren<Cell>())
+        foreach (var cell in _cellsParent.GetComponentsInChildren<Cell>())
         {
             Destroy(cell);
         }
