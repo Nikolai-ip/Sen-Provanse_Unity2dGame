@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6963383939899370592}
   - component: {fileID: 6963383939899370598}
   - component: {fileID: 449514857}
+  - component: {fileID: -2083659746486545018}
   m_Layer: 7
   m_Name: House
   m_TagString: Untagged
@@ -104,7 +105,6 @@ MonoBehaviour:
   _builtZone: {fileID: 0}
   dX: 0
   dY: 0.5
-  _cashManager: {fileID: 0}
 --- !u!61 &6963383939899370592
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,9 +159,30 @@ MonoBehaviour:
   rentCost: 0
   inComeInterval: 0
   rentInterval: 0
-  initialCost: 0
+  initialCost: 20
   occupiedHeight: 0
   occupiedWidth: 0
+  buildingTime: 10
+--- !u!114 &-2083659746486545018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6963383939899370604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f77aad431f7194783490770683ba89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: c9c7a40acd0b84e40aa9b42927b0fc3d, type: 3}
+  - {fileID: 21300000, guid: feb377d922c4d9947ba11720cf8fb210, type: 3}
+  - {fileID: 21300000, guid: 3893f3d933001ec4c899e25e5f2cabd7, type: 3}
+  - {fileID: 21300000, guid: fa8f1ad4997f7ff4ba8ffc97358dc1dc, type: 3}
+  - {fileID: 21300000, guid: e9521607a48610b4db092ed7103bdfc8, type: 3}
+  - {fileID: 21300000, guid: 3c6c20c4bc431bc40b0b7cd8870469ec, type: 3}
+  - {fileID: 21300000, guid: 9b0ad712ad0e6c846ade1bb3154e6d6c, type: 3}
 --- !u!1001 &5150637844999864427
 PrefabInstance:
   m_ObjectHideFlags: 0

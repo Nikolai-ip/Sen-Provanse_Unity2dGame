@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 639718725408779043}
   - component: {fileID: 639718725408779045}
   - component: {fileID: 1020532058}
+  - component: {fileID: 4529722087949703305}
   m_Layer: 7
   m_Name: Hospital
   m_TagString: Untagged
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1b4f2900129ec4eb76b31e687016dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _builtZone: {fileID: 0}
   dX: 0
   dY: 0.6
 --- !u!61 &639718725408779043
@@ -157,9 +159,31 @@ MonoBehaviour:
   rentCost: 0
   inComeInterval: 0
   rentInterval: 0
-  initialCost: 0
+  initialCost: 20
   occupiedHeight: 0
   occupiedWidth: 0
+  buildingTime: 10
+--- !u!114 &4529722087949703305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639718725408779055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f77aad431f7194783490770683ba89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 1554244896b4fb14fa6804a827ee80fd, type: 3}
+  - {fileID: 21300000, guid: 26625be10922af540b26c77ebdc0782e, type: 3}
+  - {fileID: 21300000, guid: 07515690109c7cc45ab12e6d1e55ad73, type: 3}
+  - {fileID: 21300000, guid: 8a6faa9cc5ad09f47898bbff61c9f063, type: 3}
+  - {fileID: 21300000, guid: 975e6b4d9ed9560489fb5b984ad4d15d, type: 3}
+  - {fileID: 21300000, guid: 9c372f4d179630a4cb322adb3a7ae1e1, type: 3}
+  - {fileID: 21300000, guid: 4d43bd9bc7a267a4a830e93449dfa50c, type: 3}
+  - {fileID: 21300000, guid: 73e8ba300bb1b124dad65b5ed8c6f9a4, type: 3}
 --- !u!1001 &3402726608939632424
 PrefabInstance:
   m_ObjectHideFlags: 0

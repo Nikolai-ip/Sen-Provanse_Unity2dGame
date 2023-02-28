@@ -10,6 +10,8 @@ public abstract class Build : MonoBehaviour
     public int OccupiedHeight => occupiedHeight;
     public int OccupiedWidth => occupiedWidth;
 
+    public float BuildingTime => buildingTime;
+
     [SerializeField] protected float inCome;
     [SerializeField] protected float rentCost;
     [SerializeField] protected float inComeInterval;
@@ -17,7 +19,7 @@ public abstract class Build : MonoBehaviour
     [SerializeField] protected float initialCost;
     [SerializeField] protected int occupiedHeight;
     [SerializeField] protected int occupiedWidth;
-
+    [SerializeField] protected float buildingTime;
     protected void Initialize()
     {
     }

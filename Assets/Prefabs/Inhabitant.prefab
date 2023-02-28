@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _occupiedZoneInhabitant: {fileID: 5888167472832421674}
   target: {fileID: 0}
-  prevCell: {fileID: 0}
+  prevPath: []
 --- !u!114 &3070872177377524926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,9 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62056ad4a56df647bcb45f6e0bae9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
-  _desiredDuration: 2
-  _optimalCell: {fileID: 0}
+  _speed: 0.5
 --- !u!1 &3070872178094341886
 GameObject:
   m_ObjectHideFlags: 0

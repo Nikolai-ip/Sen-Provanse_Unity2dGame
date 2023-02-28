@@ -14,12 +14,12 @@ public class PlayerCashManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+            onCashCnaged.Invoke(_currentCash);
+            return;
         }
-        else if (instance == this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
+        Destroy(gameObject);
+
     }
 
     public void AddCash(float cash)

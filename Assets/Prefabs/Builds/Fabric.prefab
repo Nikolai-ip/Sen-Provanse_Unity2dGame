@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2523056649435196434}
   - component: {fileID: 1051643382}
   - component: {fileID: 2523056649435196436}
+  - component: {fileID: 1863199138059386731}
   m_Layer: 7
   m_Name: Fabric
   m_TagString: Untagged
@@ -104,7 +105,6 @@ MonoBehaviour:
   _builtZone: {fileID: 5465799777528394690}
   dX: 0
   dY: 0
-  _cashManager: {fileID: 2523056649435196436}
 --- !u!61 &2523056649435196434
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,9 +147,10 @@ MonoBehaviour:
   rentCost: 0
   inComeInterval: 5
   rentInterval: 0
-  initialCost: 0
+  initialCost: 20
   occupiedHeight: 0
   occupiedWidth: 0
+  buildingTime: 10
 --- !u!114 &2523056649435196436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +163,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643b44217a4bf3f46b39ae5f00817244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1863199138059386731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523056649435196446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f77aad431f7194783490770683ba89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: acaf35a4e0074b6468c65c82ea747ca2, type: 3}
+  - {fileID: 21300000, guid: 0f935aa7a2d169c45b797de94cc6b837, type: 3}
+  - {fileID: 21300000, guid: 6134951cd436a2b4d8774f9dc550a331, type: 3}
+  - {fileID: 21300000, guid: 92016dab16ca3134193d4d7fd7a767bd, type: 3}
 --- !u!1001 &350128206671478809
 PrefabInstance:
   m_ObjectHideFlags: 0

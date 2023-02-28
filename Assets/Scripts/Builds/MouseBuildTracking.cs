@@ -16,7 +16,7 @@ public class MouseBuildTracking : MonoBehaviour
     private BoxCollider2D _boxCollider;
     [SerializeField] private float dX;
     [SerializeField] private float dY;
-    [SerializeField] private BuildCashManager _cashManager;
+    private Builder _builder;
 
     private void Awake()
     {
@@ -24,8 +24,7 @@ public class MouseBuildTracking : MonoBehaviour
         mousePosition = FindAnyObjectByType<CellMousePosition>();
         _boxCollider = GetComponent<BoxCollider2D>();
         _builtZone = GetComponentInChildren<OccupiedZoneBuild>();
-        _cashManager = GetComponent<BuildCashManager>();
-        _cashManager.enabled = false;
+        _builder= GetComponent<Builder>();
     }
 
     private void Update()
@@ -67,7 +66,6 @@ public class MouseBuildTracking : MonoBehaviour
     }
     public void StartMoveTheBuilding()
     {
-        _cashManager.enabled = false;
         _builtZone.TurnOff();
         _builtZone.MovingMode();
         _isTracked = true;  
@@ -78,7 +76,7 @@ public class MouseBuildTracking : MonoBehaviour
         _builtZone.TurnOn();
         _isTracked = false;
         _cells.SetActiveCells(false);
-        _cashManager.enabled = true;
+        _builder.StartBuilding();
     }
     private void MoveTheBuilding()
     {

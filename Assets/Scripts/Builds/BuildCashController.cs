@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class BuildCashManager : MonoBehaviour
+public class BuildCashController : MonoBehaviour
 {
     
     private Build _build;
