@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1b4f2900129ec4eb76b31e687016dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildIsModify: 1
   _builtZone: {fileID: 5465799777528394690}
   dX: 0
   dY: 0
@@ -143,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a70b671f083ada4a8ae76aa0f876933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TypeName: Fabric
   inCome: 20
   rentCost: 0
   inComeInterval: 5

@@ -102,9 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1b4f2900129ec4eb76b31e687016dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildIsModify: 1
   _builtZone: {fileID: 0}
   dX: 0
-  dY: 0.6
+  dY: 0
 --- !u!61 &639718725408779043
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -118,18 +119,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 1.84}
+    oldSize: {x: 3.5, y: 3.1}
     newSize: {x: 1.41, y: 1.89}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8658195, y: 1.8245567}
+  m_Size: {x: 3.37, y: 2.25}
   m_EdgeRadius: 0
 --- !u!114 &639718725408779045
 MonoBehaviour:
@@ -155,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76b25d39355d7047a6029049098c114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TypeName: Hospital
   inCome: 0
   rentCost: 0
   inComeInterval: 0
@@ -162,7 +164,7 @@ MonoBehaviour:
   initialCost: 20
   occupiedHeight: 0
   occupiedWidth: 0
-  buildingTime: 10
+  buildingTime: 2
 --- !u!114 &4529722087949703305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +185,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 975e6b4d9ed9560489fb5b984ad4d15d, type: 3}
   - {fileID: 21300000, guid: 9c372f4d179630a4cb322adb3a7ae1e1, type: 3}
   - {fileID: 21300000, guid: 4d43bd9bc7a267a4a830e93449dfa50c, type: 3}
-  - {fileID: 21300000, guid: 73e8ba300bb1b124dad65b5ed8c6f9a4, type: 3}
+  - {fileID: 21300000, guid: 28b381f299c896e468eb3744846b5bda, type: 3}
 --- !u!1001 &3402726608939632424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,6 +236,18 @@ PrefabInstance:
     - target: {fileID: 1575159461524137567, guid: 3558f73c8833ed2489800797c37c0716, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335257287250890541, guid: 3558f73c8833ed2489800797c37c0716, type: 3}
+      propertyPath: m_Size.x
+      value: 3.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335257287250890541, guid: 3558f73c8833ed2489800797c37c0716, type: 3}
+      propertyPath: m_Size.y
+      value: 2.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335257287250890541, guid: 3558f73c8833ed2489800797c37c0716, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 8000143676377777216, guid: 3558f73c8833ed2489800797c37c0716, type: 3}
       propertyPath: m_Name

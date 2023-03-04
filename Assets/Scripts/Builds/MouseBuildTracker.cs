@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using System;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class MouseBuildTracking : MonoBehaviour
+public class MouseBuildTracker : MonoBehaviour
 {
-    private bool _isTrackeable = false;
+    private bool _isMouseHover = false;
     private bool _isTracked = false;
+    public bool buildIsModify = true;
     private CellMousePosition mousePosition;
     Cells _cells;
     [SerializeField] private OccupiedZoneBuild _builtZone;
@@ -17,19 +14,25 @@ public class MouseBuildTracking : MonoBehaviour
     [SerializeField] private float dX;
     [SerializeField] private float dY;
     private Builder _builder;
-
+    public event Action<Build> onBuildIsClicked;
+    private Build _build;
+    private BuildJournal _buildJournal;
+    private UIBuildManager _uIBuildManager;
     private void Awake()
     {
         _cells = FindObjectOfType<Cells>();
         mousePosition = FindAnyObjectByType<CellMousePosition>();
         _boxCollider = GetComponent<BoxCollider2D>();
         _builtZone = GetComponentInChildren<OccupiedZoneBuild>();
-        _builder= GetComponent<Builder>();
+        _builder = GetComponent<Builder>();
+        _build = GetComponent<Build>();
+        _buildJournal = FindObjectOfType<BuildJournal>();
+        _uIBuildManager = FindObjectOfType<UIBuildManager>();   
     }
 
     private void Update()
     {
-        _isTrackeable = false;
+        _isMouseHover = false;
         CheckMouseHover();
         CheckMouseClick();
         if (_isTracked)
@@ -44,7 +47,7 @@ public class MouseBuildTracking : MonoBehaviour
         {
             if (hit.collider == _boxCollider)
             {
-                _isTrackeable = true;
+                _isMouseHover = true;
             }
         }
     }
@@ -53,17 +56,28 @@ public class MouseBuildTracking : MonoBehaviour
         if (Input.GetMouseButtonDown((int)MouseButton.Left))
         {
 
-            if (_isTrackeable && !_isTracked)
+            if (CanStartMoveBuilding())
             {
                 StartMoveTheBuilding();
                 return;
             }
-            if (_isTracked && !_builtZone.isCollisionWithOthersZones)
+            if (CanPutBuild())
             {
                 PutBuild();
+                return;
             }
+            if (!buildIsModify && _isMouseHover)
+            {
+                _uIBuildManager.ShowUI(_build);
+                return;
+            }
+            _uIBuildManager.HideUi(_build);
+
         }
     }
+    private bool CanStartMoveBuilding() => !_isTracked && buildIsModify && _isMouseHover;
+    private bool CanPutBuild() => _isTracked && !_builtZone.IsCollisionWithOthersZones && buildIsModify && _isMouseHover;
+
     public void StartMoveTheBuilding()
     {
         _builtZone.TurnOff();
@@ -73,10 +87,12 @@ public class MouseBuildTracking : MonoBehaviour
     }
     private void PutBuild()
     {
+        buildIsModify = false;
         _builtZone.TurnOn();
         _isTracked = false;
         _cells.SetActiveCells(false);
         _builder.StartBuilding();
+        _buildJournal.Add(_build);
     }
     private void MoveTheBuilding()
     {

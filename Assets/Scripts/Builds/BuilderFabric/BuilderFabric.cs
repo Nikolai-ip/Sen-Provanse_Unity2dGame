@@ -14,7 +14,7 @@ public class BuilderFabric : MonoBehaviour
         if ((_cashManager.CurrentCash - _build.InitialCost) >= 0)
         {
             var buld = Instantiate(_build);
-            buld.GetComponent<MouseBuildTracking>().StartMoveTheBuilding();
+            buld.GetComponent<MouseBuildTracker>().StartMoveTheBuilding();
         }
     }
 }

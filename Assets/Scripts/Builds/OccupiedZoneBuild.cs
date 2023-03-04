@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -6,7 +7,8 @@ using UnityEngine;
 public class OccupiedZoneBuild : OccupiedZone
 {
     [SerializeField] private bool _isMovingMode = false; 
-    public bool isCollisionWithOthersZones = false;
+    private bool isCollisionWithOthersZones = false;
+    public bool IsCollisionWithOthersZones { get { return isCollisionWithOthersZones; } private set { isCollisionWithOthersZones = value;} } 
     public void TurnOn()
     {
         _cells.Clear();
@@ -40,34 +42,23 @@ public class OccupiedZoneBuild : OccupiedZone
     {
         while (_isMovingMode)
         {
-            foreach (var cell in _cells)
-            {
-                if (!cell.IsBusy)
-                {
-                    cell.SetOriginalColor();
-                }
-
-            }
+            SetCellsOriginalColor();
             UpdateNeightborsCellsinList();
-            isCollisionWithOthersZones = false;
-            foreach (var cell in _cells)
-            {
-                if (cell.IsBusy)
-                {
-                    isCollisionWithOthersZones = true;
-                }
-                else
-                {
-                    cell.SetHightlightColor();
-                }
-
-            }
+            SetCellsHighlightColor();
+            IsCollisionWithOthersZones = CheckCollisionWithOthersZones();
             await Task.Yield();
         }
     }
+
+    private bool CheckCollisionWithOthersZones()
+    {
+        foreach (var cell in _cells)
+            if (cell.IsBusy)
+                return true;
+        return false;
+    }
     private void OccupieZone()
     {
-
         foreach (var cellCollider in TakeNeightborsCells())
         {
             if (cellCollider.TryGetComponent(out Cell cell))
@@ -76,5 +67,18 @@ public class OccupiedZoneBuild : OccupiedZone
                 cell.IsBusy = true;
             }
         }
+    }
+    private void SetCellsOriginalColor()
+    {
+        foreach (var cell in _cells)
+            if (!cell.IsBusy)
+                cell.SetOriginalColor();
+    }
+    private void SetCellsHighlightColor()
+    {
+        foreach (var cell in _cells)
+            if (!cell.IsBusy)
+                cell.SetHightlightColor();
+
     }
 }

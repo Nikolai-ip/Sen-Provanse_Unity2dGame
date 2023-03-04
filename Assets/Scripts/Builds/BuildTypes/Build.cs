@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class Build : MonoBehaviour
 {
+    public string TypeName;
     public float InCome => inCome;
     public float RentCost => rentCost;
     public float InComeInterval => inComeInterval;
@@ -9,7 +10,6 @@ public abstract class Build : MonoBehaviour
     public float InitialCost => initialCost;
     public int OccupiedHeight => occupiedHeight;
     public int OccupiedWidth => occupiedWidth;
-
     public float BuildingTime => buildingTime;
 
     [SerializeField] protected float inCome;
@@ -22,5 +22,10 @@ public abstract class Build : MonoBehaviour
     [SerializeField] protected float buildingTime;
     protected void Initialize()
     {
+
+    }
+    public void SetInhabitants()
+    {
+
     }
 }

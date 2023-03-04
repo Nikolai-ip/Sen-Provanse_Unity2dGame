@@ -6,6 +6,7 @@ namespace Assets.Scripts.Builds
         private void Start()
         {
             Initialize();
+            TypeName = GetType().Name;
         }
     }
 }
